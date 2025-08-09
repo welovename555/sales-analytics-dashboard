@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>แดชบอร์ดวิเคราะห์ยอดขาย</title>
+    <!--
+      CSS สำหรับจัดวางหน้าจอแบบ Mobile‑First และสไตล์ที่ทันสมัย
+      ปรับปรุงให้เข้าใจง่ายและน่าใช้งาน
+    -->
+    <link rel="stylesheet" href="style.css" />
+    <!--
+      โหลดไลบรารี Supabase แบบ UMD ผ่าน CDN ตามคำแนะนำจากเอกสารของ Supabase ซึ่งอนุญาตให้เรียกใช้ผ่านตัวแปร global `supabase`【334817631874034†L44-L58】
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!--
+      โหลดไลบรารี Chart.js ผ่าน CDN เพื่อใช้ในการสร้างกราฟแบบโต้ตอบ
+      ตามตัวอย่างจากเอกสารอย่างเป็นทางการ【308262424305845†L134-L150】
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>แดชบอร์ดวิเคราะห์ยอดขาย</h1>
+    </header>
+    <div class="container">
+      <!-- การ์ดสรุปข้อมูลยอดขาย -->
+      <div class="card">
+        <h2>ข้อมูลสรุปยอดขาย</h2>
+        <p id="summary">กำลังโหลด...</p>
+      </div>
+      <!-- จัดวางกราฟและตารางแบบตาราง (grid) สำหรับจอขนาดใหญ่ และแบบแถวสำหรับหน้าจอมือถือ -->
+      <div class="grid">
+        <div class="card">
+          <h3>สินค้าขายดี</h3>
+          <div class="chart-container">
+            <canvas id="topProductsChart"></canvas>
+          </div>
+        </div>
+        <div class="card">
+          <h3>แนวโน้มลูกค้า</h3>
+          <div class="chart-container">
+            <canvas id="customerTrendChart"></canvas>
+          </div>
+        </div>
+        <div class="card">
+          <h3>ช่วงเวลายอดขายสูงสุด/ต่ำสุด (ต่อชั่วโมง)</h3>
+          <div class="chart-container">
+            <canvas id="timeChart"></canvas>
+          </div>
+        </div>
+        <div class="card">
+          <h3>ยอดขายรายวันแต่ละสินค้า</h3>
+          <div id="dailySalesTable"></div>
+        </div>
+      </div>
+    </div>
+    <!-- ไฟล์สคริปต์สำหรับประมวลผลข้อมูลและสร้างกราฟ -->
+    <script src="app.js"></script>
+  </body>
+</html>
